@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd ./poetry
-          poetry install --no-dev --no-root
+          poetry install
       
       - name: Lint with Ruff
         run: |
