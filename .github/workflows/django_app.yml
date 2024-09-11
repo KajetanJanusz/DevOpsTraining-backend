@@ -1,0 +1,37 @@
+name: Django CI/CD pipeline
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+    
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.12"
+
+      - name: Install poetry
+        run: |
+          pip install poetry
+
+      - name: Install dependencies
+        run: |
+          poetry install --no-dev --no-root
+      
+      - name: Lint with Ruff
+        run: |
+          poetry run ruff check .
+
+      - name: Test with pytest
+        run: |
+          poetry run pytest -s -vv --cov-fail-under=20 --cov-report=term-missing --cov . .
