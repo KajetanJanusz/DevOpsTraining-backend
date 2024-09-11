@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from core.health_check import healthcheck
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('u8eQDd32dw3dcFWE3@/', healthcheck, name="healthcheck")
 ]
