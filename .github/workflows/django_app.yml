@@ -31,8 +31,10 @@ jobs:
       
       - name: Lint with Ruff
         run: |
+          cd ./poetry
           poetry run ruff check .
 
       - name: Test with pytest
         run: |
+          cd ./poetry
           poetry run pytest -s -vv --cov-fail-under=20 --cov-report=term-missing --cov . .
