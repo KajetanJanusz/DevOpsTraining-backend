@@ -1,4 +1,4 @@
-name: Django CI/CD pipeline
+name: Django CI pipeline
 
 on:
   push:
@@ -13,16 +13,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v3
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v4
         with:
           python-version: "3.12"
 
       - name: Install poetry
-        run: |
-          pip install poetry
+        run: pip install poetry
 
       - name: Install dependencies
         run: |

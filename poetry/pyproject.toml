@@ -10,6 +10,9 @@ python = "^3.12"
 django = "^5.1.1"
 djangorestframework = "^3.15.2"
 psycopg2-binary = "2.9.9"
+meteostat = "^1.6.8"
+geopy = "^2.4.1"
+djangorestframework-simplejwt = "^5.3.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
